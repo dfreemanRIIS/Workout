@@ -1,5 +1,6 @@
 package com.example.dfreeman.workout;
 
+import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -13,6 +14,12 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
 
     @Override
     public void itemClicked(long id) {
-        //
+        WorkoutDetailFragment details = new WorkoutDetailFragment();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        details.setWorkout(id);
+        ft.replace(R.id.fragment_container, details);
+        ft.addToBackStack(null);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.commit();
     }
 }
