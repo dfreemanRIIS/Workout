@@ -1,12 +1,8 @@
 package com.example.dfreeman.workout;
 
-/**
- * Created by dfreeman
- */
-
 public class Workout {
-    private String name;
-    private String description;
+    private final String name;
+    private final String description;
 
     public static final Workout[] workouts = {
             new Workout("The Limb Loosener", "5 Handstand pushups\n10 1-legged squats\n15 Pull-ups"),
@@ -15,7 +11,7 @@ public class Workout {
             new Workout("Strength and Length", ".31 mile run\n21 1.5 pood kettleball swing\n21 Pull-ups")
     };
 
-    public Workout(String name, String description) {
+    private Workout(String name, String description) {
         this.name = name;
         this.description = description;
     }
@@ -26,14 +22,6 @@ public class Workout {
     }
     public String getDescription() {
         return description;
-    }
-
-    //Setters
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String toString() {

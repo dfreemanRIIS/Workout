@@ -3,10 +3,6 @@ package com.example.dfreeman.workout;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-/**
- * Created by dfreeman
- */
-
 public class DetailActivity extends AppCompatActivity {
     public static final String EXTRA_WORKOUT_ID = "id";
 

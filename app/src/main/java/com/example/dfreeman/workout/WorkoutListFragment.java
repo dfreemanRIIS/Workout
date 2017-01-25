@@ -1,6 +1,6 @@
 package com.example.dfreeman.workout;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.app.ListFragment;
 import android.view.LayoutInflater;
@@ -32,9 +32,9 @@ public class WorkoutListFragment extends ListFragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        this.listener = (WorkoutListListener)activity;
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.listener = (WorkoutListListener)context;
     }
 
     @Override

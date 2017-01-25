@@ -6,12 +6,10 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
 import android.os.Handler;
-
-
+import java.util.Locale;
 
 
 public class StopwatchFragment extends Fragment implements View.OnClickListener {
@@ -38,13 +36,13 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener 
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.start_button:
-                onClickStart(v);
+                onClickStart();
                 break;
             case R.id.stop_button:
-                onClickStop(v);
+                onClickStop();
                 break;
             case R.id.reset_button:
-                onClickReset(v);
+                onClickReset();
                 break;
         }
     }
@@ -59,15 +57,15 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener 
         }
     }
 
-    public void onClickStart(View view) {
+    private void onClickStart() {
         running = true;
     }
 
-    public void onClickStop(View view) {
+    private void onClickStop() {
         running = false;
     }
 
-    public void onClickReset(View view) {
+    private void onClickReset() {
         running = false;
         seconds = 0;
     }
@@ -81,7 +79,7 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener 
                 int hours = seconds/3600;
                 int minutes = (seconds%3600)/60;
                 int secs = seconds%60;
-                String time = String.format("%d:%02d:%02d",hours,minutes,secs);
+                String time = String.format(Locale.getDefault(), "%d:%02d:%02d",hours,minutes,secs);
                 timeView.setText(time);
                 if(running) {
                     seconds++;
